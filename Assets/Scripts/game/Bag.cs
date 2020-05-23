@@ -20,7 +20,7 @@ public class Bag : MonoBehaviour
     //剑
     public void Sword()
     {
-        //1
+        
     }
 
     //刀

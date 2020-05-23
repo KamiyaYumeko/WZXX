@@ -30,7 +30,7 @@ public class EnemyDic : MonoBehaviour
             string name = enemyStrings[1];                          //敌人名字
             int Strength= Int32.Parse(enemyStrings[2]);             //敌人力量
             int Agility = Int32.Parse(enemyStrings[3]);             //敌人敏捷
-            int Neili = Int32.Parse(enemyStrings[4]);               //敌人敏捷
+            int Neili = Int32.Parse(enemyStrings[4]);               //敌人内力
             int Atk = Int32.Parse(enemyStrings[5]);                 //敌人攻击力
             int Speed = Int32.Parse(enemyStrings[6]);               //敌人速度
             float Dodge = float.Parse(enemyStrings[7]);             //敌人闪避
