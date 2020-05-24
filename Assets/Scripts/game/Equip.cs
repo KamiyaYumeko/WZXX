@@ -13,6 +13,8 @@ public class Equip : MonoBehaviour
     public void ImgAndNum(int index,int num)
     {
         transform.GetComponentInChildren<Text>().text = ""+num;
+
+        //TODO 设置路径
         Sprite sprite = Resources.Load("", typeof(Sprite)) as Sprite;    //参数为资源路径和资源类型
         transform.GetComponent<Image>().sprite = sprite;
     }
