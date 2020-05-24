@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //管理背包
 public class Bag : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Item;                     //物品预制体
 
-    // Update is called once per frame
-    void Update()
+    public GameObject ItemParent;               //设置物品父物体
+    //显示全部装备
+    public void All()
     {
-        
+        for (int i = 0; i < Player.EqList.Count; i++)
+        {
+            GameObject obj = Instantiate(Item);
+            obj.transform.SetParent(ItemParent.transform);
+            //TODO 装备赋值
+        }
     }
 
     //剑
