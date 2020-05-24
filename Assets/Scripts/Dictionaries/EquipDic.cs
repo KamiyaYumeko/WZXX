@@ -13,7 +13,7 @@ public class EquipDic : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        ReadInfo();
     }
 
     //将装备数据存入字典
