@@ -9,14 +9,16 @@ public class Bag : MonoBehaviour
     public GameObject Item;                     //物品预制体
 
     public GameObject ItemParent;               //设置物品父物体
-    //显示全部装备
+
+    //显示全部物品
     public void All()
     {
-        for (int i = 0; i < Player.EqList.Count; i++)
+        foreach (var e in Player.EqList)
         {
             GameObject obj = Instantiate(Item);
             obj.transform.SetParent(ItemParent.transform);
-            //TODO 装备赋值
+            obj.GetComponent<Equip>().Index = e.Id;
+            obj.GetComponent<Equip>().Type = 1;
         }
     }
 

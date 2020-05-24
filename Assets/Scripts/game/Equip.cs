@@ -5,15 +5,9 @@ using UnityEngine;
 //物品
 public class Equip : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int Index;                               //物品ID
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int Type;                                //物品类型 1装备 2消耗品 3特殊
+    
+
 }
