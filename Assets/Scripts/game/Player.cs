@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     public static List<GFTemplate> GfList;              //学习功法
 
+    public static List<EquipTemplate> EqList;           //获得装备
+
     public GameObject PlayerInfo;                       //获取战斗界面玩家信息
 
     public Text T;                                      //在信息框内生成信息
@@ -279,6 +281,35 @@ public class Player : MonoBehaviour
         PlayerAttribute.MaxMp = maxMp;
         PlayerAttribute.Mp = mp;
         PlayerAttribute.MpBack = mpBack;
+    }
+
+    //获得装备
+    public void AddEq(int index, int lv)
+    {
+        EquipTemplate EqT=new EquipTemplate();
+        EqT.Id = EquipDic.equipDic[index].Id;
+        EqT.Name = EquipDic.equipDic[index].Name;
+        EqT.Lv = lv;
+        EqT.Strength = EquipDic.equipDic[index].Strength * lv;
+        EqT.Agility = EquipDic.equipDic[index].Agility * lv;
+        EqT.Neili = EquipDic.equipDic[index].Neili * lv;
+        EqT.Atk = EquipDic.equipDic[index].Atk * lv;
+        EqT.Speed = EquipDic.equipDic[index].Speed * lv;
+        EqT.Dodge = EquipDic.equipDic[index].Dodge * lv;
+        EqT.Armor = EquipDic.equipDic[index].Armor * lv;
+        EqT.Magic = EquipDic.equipDic[index].Magic * lv;
+        EqT.MaxHp = EquipDic.equipDic[index].MaxHp * lv;
+        EqT.HpBack = EquipDic.equipDic[index].HpBack * lv;
+        EqT.MaxMp = EquipDic.equipDic[index].MaxMp * lv;
+        EqT.MpBack = EquipDic.equipDic[index].MpBack * lv;
+        EqT.Sword = EquipDic.equipDic[index].Sword * lv;
+        EqT.Knife = EquipDic.equipDic[index].Knife * lv;
+        EqT.Stick = EquipDic.equipDic[index].Stick * lv;
+        EqT.Backstabber = EquipDic.equipDic[index].Backstabber * lv;
+        EqT.Leechcraft = EquipDic.equipDic[index].Leechcraft * lv;
+        EqT.Poisoning = EquipDic.equipDic[index].Poisoning * lv;
+        EqT.Information = EquipDic.equipDic[index].Information;
+        EqT.Type = EquipDic.equipDic[index].Type;
     }
 
     //伤害结算
