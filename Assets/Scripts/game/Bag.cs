@@ -20,6 +20,14 @@ public class Bag : MonoBehaviour
             obj.GetComponent<Equip>().Index = e.Id;
             obj.GetComponent<Equip>().Type = 1;
         }
+
+        foreach (var c in Player.ConList)
+        {
+            GameObject obj = Instantiate(Item);
+            obj.transform.SetParent(ItemParent.transform);
+            obj.GetComponent<Equip>().Index = c.Id;
+            obj.GetComponent<Equip>().Type = 2;
+        }
     }
 
     //剑
