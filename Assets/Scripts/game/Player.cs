@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     public static List<EquipTemplate> EqList;           //获得装备
 
+    public static List<ConsumablesTemplate> ConList;    //获得消耗品
+
     public GameObject PlayerInfo;                       //获取战斗界面玩家信息
 
     public Text T;                                      //在信息框内生成信息
@@ -310,6 +312,51 @@ public class Player : MonoBehaviour
         EqT.Poisoning = EquipDic.equipDic[index].Poisoning * lv;
         EqT.Information = EquipDic.equipDic[index].Information;
         EqT.Type = EquipDic.equipDic[index].Type;
+    }
+
+    //获得消耗品
+    public void AddCon(int index,int num)
+    {
+        if (Con(index,num))
+        {
+            ConsumablesTemplate conTe=new ConsumablesTemplate();
+            conTe.Id = ConsumablesDic.consumablesDic[index].Id;
+            conTe.Name = ConsumablesDic.consumablesDic[index].Name;
+            conTe.Num = num;
+            conTe.Hp = ConsumablesDic.consumablesDic[index].Hp;
+            conTe.Mp = ConsumablesDic.consumablesDic[index].Mp;
+            conTe.Exp = ConsumablesDic.consumablesDic[index].Exp;
+            conTe.Information = ConsumablesDic.consumablesDic[index].Information;
+            conTe.Type = ConsumablesDic.consumablesDic[index].Type;
+        }
+
+        T.text += "\n" + ConsumablesDic.consumablesDic[index].Name
+                       + "X" + num;
+    }
+
+    //判断是否已拥有 
+    //TODO 该地方可能会出现BUG注意
+    public bool Con(int index,int num)
+    {
+        if (ConList.Count>0)
+        {
+            foreach (var c in ConList)
+            {
+                if (ConList[index].Num==99)
+                {
+                    return true;
+                }
+                else
+                {
+                    if (c.Id == ConsumablesDic.consumablesDic[index].Id)
+                    {
+                        c.Num += num;
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 
     //伤害结算
