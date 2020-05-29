@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //特殊品模板
+[System.Serializable]
 public class SpecialTemplate
 {
     public int Id;

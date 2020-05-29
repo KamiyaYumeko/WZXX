@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     public static List<ConsumablesTemplate> ConList;    //获得消耗品
 
+    public static List<SpecialTemplate> SpeList;        //获得特殊物品
+
     public GameObject PlayerInfo;                       //获取战斗界面玩家信息
 
     public Text T;                                      //在信息框内生成信息
@@ -292,30 +294,33 @@ public class Player : MonoBehaviour
     //获得装备
     public void AddEq(int index, int lv)
     {
-        EquipTemplate EqT=new EquipTemplate();
-        EqT.Id = EquipDic.equipDic[index].Id;
-        EqT.Name = EquipDic.equipDic[index].Name;
-        EqT.Lv = lv;
-        EqT.Strength = EquipDic.equipDic[index].Strength * lv;
-        EqT.Agility = EquipDic.equipDic[index].Agility * lv;
-        EqT.Neili = EquipDic.equipDic[index].Neili * lv;
-        EqT.Atk = EquipDic.equipDic[index].Atk * lv;
-        EqT.Speed = EquipDic.equipDic[index].Speed * lv;
-        EqT.Dodge = EquipDic.equipDic[index].Dodge * lv;
-        EqT.Armor = EquipDic.equipDic[index].Armor * lv;
-        EqT.Magic = EquipDic.equipDic[index].Magic * lv;
-        EqT.MaxHp = EquipDic.equipDic[index].MaxHp * lv;
-        EqT.HpBack = EquipDic.equipDic[index].HpBack * lv;
-        EqT.MaxMp = EquipDic.equipDic[index].MaxMp * lv;
-        EqT.MpBack = EquipDic.equipDic[index].MpBack * lv;
-        EqT.Sword = EquipDic.equipDic[index].Sword * lv;
-        EqT.Knife = EquipDic.equipDic[index].Knife * lv;
-        EqT.Stick = EquipDic.equipDic[index].Stick * lv;
-        EqT.Backstabber = EquipDic.equipDic[index].Backstabber * lv;
-        EqT.Leechcraft = EquipDic.equipDic[index].Leechcraft * lv;
-        EqT.Poisoning = EquipDic.equipDic[index].Poisoning * lv;
-        EqT.Information = EquipDic.equipDic[index].Information;
-        EqT.Type = EquipDic.equipDic[index].Type;
+        EquipTemplate eqT = new EquipTemplate
+        {
+            Id = EquipDic.equipDic[index].Id,
+            Name = EquipDic.equipDic[index].Name,
+            Lv = lv,
+            Strength = EquipDic.equipDic[index].Strength * lv,
+            Agility = EquipDic.equipDic[index].Agility * lv,
+            Neili = EquipDic.equipDic[index].Neili * lv,
+            Atk = EquipDic.equipDic[index].Atk * lv,
+            Speed = EquipDic.equipDic[index].Speed * lv,
+            Dodge = EquipDic.equipDic[index].Dodge * lv,
+            Armor = EquipDic.equipDic[index].Armor * lv,
+            Magic = EquipDic.equipDic[index].Magic * lv,
+            MaxHp = EquipDic.equipDic[index].MaxHp * lv,
+            HpBack = EquipDic.equipDic[index].HpBack * lv,
+            MaxMp = EquipDic.equipDic[index].MaxMp * lv,
+            MpBack = EquipDic.equipDic[index].MpBack * lv,
+            Sword = EquipDic.equipDic[index].Sword * lv,
+            Knife = EquipDic.equipDic[index].Knife * lv,
+            Stick = EquipDic.equipDic[index].Stick * lv,
+            Backstabber = EquipDic.equipDic[index].Backstabber * lv,
+            Leechcraft = EquipDic.equipDic[index].Leechcraft * lv,
+            Poisoning = EquipDic.equipDic[index].Poisoning * lv,
+            Information = EquipDic.equipDic[index].Information,
+            Type = EquipDic.equipDic[index].Type
+        };
+        EqList.Add(eqT);
     }
 
     //获得消耗品
@@ -334,10 +339,11 @@ public class Player : MonoBehaviour
                 Information = ConsumablesDic.consumablesDic[index].Information,
                 Type = ConsumablesDic.consumablesDic[index].Type
             };
+            ConList.Add(conTe);
         }
 
-        T.text += "\n" + ConsumablesDic.consumablesDic[index].Name
-                       + "X" + num;
+        T.text += "\n" + "获得" + ConsumablesDic.consumablesDic[index].Name
+                  + "X" + num;
     }
 
     //判断是否已拥有 
@@ -363,6 +369,20 @@ public class Player : MonoBehaviour
             }
         }
         return true;
+    }
+
+    //获得特殊品
+    public void AddSpe(int index)
+    {
+        SpecialTemplate speTe = new SpecialTemplate
+        {
+            Id = SpecialDic.specialDic[index].Id,
+            Name = SpecialDic.specialDic[index].Name,
+            Information = SpecialDic.specialDic[index].Information,
+            Type = SpecialDic.specialDic[index].Type
+        };
+        SpeList.Add(speTe);
+        T.text += "\n" + "获得" + SpecialDic.specialDic[index].Name;
     }
 
     //伤害结算
