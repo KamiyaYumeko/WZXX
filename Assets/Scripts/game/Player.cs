@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     {
         SkilList=new List<SkillTemplate>();
         GfList=new List<GFTemplate>();
+        EqList=new List<EquipTemplate>();
+        ConList=new List<ConsumablesTemplate>();
+        SpeList=new List<SpecialTemplate>();
         Assignment();
     }
 

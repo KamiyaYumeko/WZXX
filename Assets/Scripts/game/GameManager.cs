@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void BagOpen()
     {
         PlayerBag.gameObject.SetActive(true);
+        PlayerBag.GetComponent<Bag>().All();
     }
 
     //进入战斗
