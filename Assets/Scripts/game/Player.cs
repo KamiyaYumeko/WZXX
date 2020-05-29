@@ -142,17 +142,19 @@ public class Player : MonoBehaviour
     {
         if (Skill(index))
         {
-            SkillTemplate SkillT = new SkillTemplate();
-            SkillT.Id = SkillDic.skillDic[index].Id;
-            SkillT.Name = SkillDic.skillDic[index].Name;
-            SkillT.Lv = lv;
-            SkillT.Hurt = SkillDic.skillDic[index].Hurt*lv;
-            SkillT.Expend = SkillDic.skillDic[index].Expend;
-            SkillT.Mp = SkillDic.skillDic[index].Mp;
-            SkillT.Continue = SkillDic.skillDic[index].Continue;
-            SkillT.Attribute = SkillDic.skillDic[index].Attribute*lv;
-            SkillT.Information = SkillDic.skillDic[index].Information;
-            SkillT.Type = SkillDic.skillDic[index].Type;
+            SkillTemplate SkillT = new SkillTemplate
+            {
+                Id = SkillDic.skillDic[index].Id,
+                Name = SkillDic.skillDic[index].Name,
+                Lv = lv,
+                Hurt = SkillDic.skillDic[index].Hurt * lv,
+                Expend = SkillDic.skillDic[index].Expend,
+                Mp = SkillDic.skillDic[index].Mp,
+                Continue = SkillDic.skillDic[index].Continue,
+                Attribute = SkillDic.skillDic[index].Attribute * lv,
+                Information = SkillDic.skillDic[index].Information,
+                Type = SkillDic.skillDic[index].Type
+            };
             SkilList.Add(SkillT);
             AddAttribute(SkillT.Attribute, SkillT.Type);
             T.text += "\n" + SkillDic.skillDic[index].Name
@@ -213,23 +215,25 @@ public class Player : MonoBehaviour
     {
         if (Gf(index))
         {
-            GFTemplate GfT=new GFTemplate();
-            GfT.Id = GongFaDic.GongfDic[index].Id;
-            GfT.Name = GongFaDic.GongfDic[index].Name;
-            GfT.Lv = lv;
-            GfT.Strength = GongFaDic.GongfDic[index].Strength * lv;
-            GfT.Agility = GongFaDic.GongfDic[index].Agility * lv;
-            GfT.Neili = GongFaDic.GongfDic[index].Neili * lv;
-            GfT.Atk = GongFaDic.GongfDic[index].Atk * lv;
-            GfT.Speed = GongFaDic.GongfDic[index].Speed * lv;
-            GfT.Dodge = GongFaDic.GongfDic[index].Dodge * lv;
-            GfT.Armor = GongFaDic.GongfDic[index].Armor * lv;
-            GfT.Magic = GongFaDic.GongfDic[index].Magic * lv;
-            GfT.MaxHp = GongFaDic.GongfDic[index].MaxHp * lv;
-            GfT.HpBack = GongFaDic.GongfDic[index].HpBack * lv;
-            GfT.MaxMp = GongFaDic.GongfDic[index].MaxMp * lv;
-            GfT.MpBack = GongFaDic.GongfDic[index].MpBack * lv;
-            GfT.Information = GongFaDic.GongfDic[index].Information;
+            GFTemplate GfT = new GFTemplate
+            {
+                Id = GongFaDic.GongfDic[index].Id,
+                Name = GongFaDic.GongfDic[index].Name,
+                Lv = lv,
+                Strength = GongFaDic.GongfDic[index].Strength * lv,
+                Agility = GongFaDic.GongfDic[index].Agility * lv,
+                Neili = GongFaDic.GongfDic[index].Neili * lv,
+                Atk = GongFaDic.GongfDic[index].Atk * lv,
+                Speed = GongFaDic.GongfDic[index].Speed * lv,
+                Dodge = GongFaDic.GongfDic[index].Dodge * lv,
+                Armor = GongFaDic.GongfDic[index].Armor * lv,
+                Magic = GongFaDic.GongfDic[index].Magic * lv,
+                MaxHp = GongFaDic.GongfDic[index].MaxHp * lv,
+                HpBack = GongFaDic.GongfDic[index].HpBack * lv,
+                MaxMp = GongFaDic.GongfDic[index].MaxMp * lv,
+                MpBack = GongFaDic.GongfDic[index].MpBack * lv,
+                Information = GongFaDic.GongfDic[index].Information
+            };
             GfList.Add(GfT);
 
             AddAttribute(GfT.Strength, GfT.Agility, GfT.Neili,
@@ -319,15 +323,17 @@ public class Player : MonoBehaviour
     {
         if (Con(index,num))
         {
-            ConsumablesTemplate conTe=new ConsumablesTemplate();
-            conTe.Id = ConsumablesDic.consumablesDic[index].Id;
-            conTe.Name = ConsumablesDic.consumablesDic[index].Name;
-            conTe.Num = num;
-            conTe.Hp = ConsumablesDic.consumablesDic[index].Hp;
-            conTe.Mp = ConsumablesDic.consumablesDic[index].Mp;
-            conTe.Exp = ConsumablesDic.consumablesDic[index].Exp;
-            conTe.Information = ConsumablesDic.consumablesDic[index].Information;
-            conTe.Type = ConsumablesDic.consumablesDic[index].Type;
+            ConsumablesTemplate conTe = new ConsumablesTemplate
+            {
+                Id = ConsumablesDic.consumablesDic[index].Id,
+                Name = ConsumablesDic.consumablesDic[index].Name,
+                Num = num,
+                Hp = ConsumablesDic.consumablesDic[index].Hp,
+                Mp = ConsumablesDic.consumablesDic[index].Mp,
+                Exp = ConsumablesDic.consumablesDic[index].Exp,
+                Information = ConsumablesDic.consumablesDic[index].Information,
+                Type = ConsumablesDic.consumablesDic[index].Type
+            };
         }
 
         T.text += "\n" + ConsumablesDic.consumablesDic[index].Name

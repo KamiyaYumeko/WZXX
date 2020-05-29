@@ -70,6 +70,8 @@ public class EquipDic : MonoBehaviour
             infoDic.Poisoning = Poisoning;
             infoDic.Information = Information;
             infoDic.Type = Type;
+
+            equipDic.Add(id, infoDic);
         }
     }
 }
