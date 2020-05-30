@@ -16,16 +16,6 @@ public class Skill : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IP
     public GameObject PlayerGameObject;             //获取玩家
 
     public bool SkillUp;                            //是否在技能升级界面
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //根据编号赋值
     public void SkillValue(string name)
@@ -57,7 +47,20 @@ public class Skill : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IP
     {
         if (SkillUp)
         {
-            
+            Text t = SkillText.GetComponent<Text>();
+            t.text = Player.SkilList[Index].Name;
+            t.text += "\n" + Player.SkilList[Index].Information;
+            if (Player.SkilList[Index].Type != 5)
+            {
+                t.text += "\n" + "伤害：" + Player.SkilList[Index].Hurt;
+            }
+            else
+            {
+                t.text += "\n" + "治疗：" + Player.SkilList[Index].Hurt;
+            }
+
+            t.text += "\n" + "消耗：" + Player.SkilList[Index].Mp;
+            t.text += "\n" + "等级：" + Player.SkilList[Index].Lv;
         }
         else
         {
@@ -84,7 +87,8 @@ public class Skill : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IP
     {
         if (SkillUp)
         {
-            
+            Text t = SkillText.GetComponent<Text>();
+            t.text = "";
         }
         else
         {
