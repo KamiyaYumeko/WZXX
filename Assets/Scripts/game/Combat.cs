@@ -70,7 +70,8 @@ public class Combat : MonoBehaviour
             obj.GetComponent<Skill>().SkillValue(s.Name);
             obj.GetComponent<Skill>().SkillText = SkillText;
             obj.GetComponent<Skill>().SkillGameObject = SkillGameObject;
-            obj.GetComponent<Skill>().PlaerGameObject = PlayerGameObject;
+            obj.GetComponent<Skill>().PlayerGameObject = PlayerGameObject;
+            obj.GetComponent<Skill>().SkillUp = false;
             obj.transform.SetParent(SkillParent.transform);
         }
     }

@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
     public static bool ActionBool;                      //允许行动
 
     public GameObject CombatGameObject;                 //获取战斗脚本 
+
+    public static int Sp;                               //升级技能值
+
+    //测试
     private int tt;
     void Awake()
     {
@@ -47,6 +51,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //测试
         tt++;
         if (tt>=100)
         {
@@ -78,6 +83,7 @@ public class Player : MonoBehaviour
         PlayerAttribute.Poisoning = 0;
         PlayerAttribute.Lv = 1;
         PlayerAttribute.Exp = 0;
+        Sp = 0;
         PlayerAttribute.MaxExp = Mathf.Pow(PlayerAttribute.Lv - 1, 3) * 60 + 60;
 
 

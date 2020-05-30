@@ -13,7 +13,9 @@ public class Skill : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IP
 
     public GameObject SkillGameObject;              //获取技能列表
 
-    public GameObject PlaerGameObject;              //获取玩家
+    public GameObject PlayerGameObject;             //获取玩家
+
+    public bool SkillUp;                            //是否在技能升级界面
     // Start is called before the first frame update
     void Start()
     {
@@ -33,38 +35,60 @@ public class Skill : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler,IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (PlaerGameObject.GetComponent<Player>().PlayerAttribute.Mp >
-            Player.SkilList[Index].Mp)
+        if (SkillUp)
         {
-            Combat.Index = Index;
-            Combat.AtcBool = true;
-            SkillGameObject.SetActive(false);
-            SkillText.gameObject.SetActive(false);
+            
         }
+        else
+        {
+            if (PlayerGameObject.GetComponent<Player>().PlayerAttribute.Mp >
+                Player.SkilList[Index].Mp)
+            {
+                Combat.Index = Index;
+                Combat.AtcBool = true;
+                SkillGameObject.SetActive(false);
+                SkillText.gameObject.SetActive(false);
+            }
+        }
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SkillText.gameObject.SetActive(true);
-        SkillText.transform.localPosition = Vector3.zero;
-        Text t = SkillText.transform.GetChild(0).GetComponent<Text>();
-        t.text = Player.SkilList[Index].Name;
-        t.text += "\n" + Player.SkilList[Index].Information;
-        if (Player.SkilList[Index].Type!=5)
+        if (SkillUp)
         {
-            t.text += "\n" + "伤害：" + Player.SkilList[Index].Hurt;
+            
         }
         else
         {
-            t.text += "\n" + "治疗：" + Player.SkilList[Index].Hurt;
-        }
+            SkillText.gameObject.SetActive(true);
+            SkillText.transform.localPosition = Vector3.zero;
+            Text t = SkillText.transform.GetChild(0).GetComponent<Text>();
+            t.text = Player.SkilList[Index].Name;
+            t.text += "\n" + Player.SkilList[Index].Information;
+            if (Player.SkilList[Index].Type != 5)
+            {
+                t.text += "\n" + "伤害：" + Player.SkilList[Index].Hurt;
+            }
+            else
+            {
+                t.text += "\n" + "治疗：" + Player.SkilList[Index].Hurt;
+            }
 
-        t.text += "\n" + "消耗：" + Player.SkilList[Index].Mp;
-        t.text += "\n" + "等级：" + Player.SkilList[Index].Lv;
+            t.text += "\n" + "消耗：" + Player.SkilList[Index].Mp;
+            t.text += "\n" + "等级：" + Player.SkilList[Index].Lv;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        SkillText.gameObject.SetActive(false);
+        if (SkillUp)
+        {
+            
+        }
+        else
+        {
+            SkillText.gameObject.SetActive(false);
+        }
     }
 }

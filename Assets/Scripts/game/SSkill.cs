@@ -33,6 +33,7 @@ public class SSkill : MonoBehaviour
                 obj.GetComponent<Skill>().Index = i;
                 obj.GetComponent<Skill>().SkillValue(Player.SkilList[i].Name);
                 obj.GetComponent<Skill>().SkillText = SkillText;
+                obj.GetComponent<Skill>().SkillUp = true;
                 obj.transform.SetParent(SkillParent.transform);
             }
         }
@@ -48,6 +49,7 @@ public class SSkill : MonoBehaviour
             obj.GetComponent<Skill>().Index = s.Id;
             obj.GetComponent<Skill>().SkillValue(s.Name);
             obj.GetComponent<Skill>().SkillText = SkillText;
+            obj.GetComponent<Skill>().SkillUp = true;
             obj.transform.SetParent(SkillParent.transform);
         }
     }

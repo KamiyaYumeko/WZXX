@@ -237,6 +237,5 @@ public class GameManager : MonoBehaviour
             }
             CombatGameObject.gameObject.SetActive(false);
         }
-
     }
 }
